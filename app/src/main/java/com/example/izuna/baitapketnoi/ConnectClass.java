@@ -1,10 +1,19 @@
 package com.example.izuna.baitapketnoi;
+
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.os.StrictMode;
 import android.util.Log;
+
+import com.example.izuna.baitapketnoi.models.Class;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ConnectClass {
@@ -14,8 +23,14 @@ public class ConnectClass {
     String un = "tan";
     String password = "123"; //
 
+    private Activity activity;
+
+    public ConnectClass(Activity activity) {
+        this.activity = activity;
+    }
+
     @SuppressLint("NewApi")
-    public Connection CONN() {
+    public Connection conn() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -23,7 +38,7 @@ public class ConnectClass {
         String ConnURL = null;
         try {
 
-            Class.forName(classs);
+            java.lang.Class.forName(classs);
             ConnURL = "jdbc:jtds:sqlserver://" + ip + ";"
                     + "databaseName=" + db + ";user=" + un + ";password="
                     + password + ";";
@@ -36,5 +51,30 @@ public class ConnectClass {
             Log.e("ERRO", e.getMessage());
         }
         return conn;
+    }
+
+    //get list province
+    public List<Class> getAllClass(Connection conn) throws SQLException {
+
+        List<Class> classes = new ArrayList<>();
+        String query = "select * from LopHoc";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+
+        while (rs.next()) {
+            String maLop = rs.getString("MaLop");
+            String tenLop = rs.getString("TenLop");
+            String khoa = rs.getString("Khoa");
+            String heDaoTao = rs.getString("HeDaoTao");
+            int namNhapHoc = rs.getInt("NamNhapHoc");
+            int siSo = rs.getInt("SiSo");
+            String maKhoa = rs.getString("MaKhoa");
+
+            Class aClass = new Class(maLop, tenLop, khoa, heDaoTao, namNhapHoc, siSo, maKhoa);
+            // lưu vào list
+            classes.add(aClass);
+        }
+        conn.close();
+        return classes;
     }
 }

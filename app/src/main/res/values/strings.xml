@@ -1,9 +1,16 @@
 <resources>
-    <string name="app_name">baitapketnoi</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="app_name">ScoreManagement</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="pressBackAgain">Nhấn back một lần nữa để thoát</string>
+    <!--Title-->
+    <string-array name="nav_item_activity_titles">
+        <item>Lớp Học</item>
+        <item>Môn Học</item>
+        <item>Sinh Viên</item>
+        <item>Trợ Giúp</item>
+        <item>Thông Tin</item>
+    </string-array>
 </resources>
