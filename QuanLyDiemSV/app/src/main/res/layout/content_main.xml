@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ManHinh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.shadow.quanlydiemsv.MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="Quản Lý Điểm Sinh Viên"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="44dp"
+            android:id="@+id/txtQLDSV"
+            android:layout_width="300dp"
+            android:textSize="25sp" />
+
+        <Button
+            android:text="Môn Học"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/btnSinhVien"
+            android:layout_alignStart="@+id/btnSinhVien"
+            android:id="@+id/btnMonHoc"
+            android:layout_alignRight="@+id/btnSinhVien"
+            android:layout_alignEnd="@+id/btnSinhVien" />
+
+        <Button
+            android:text="Sinh Viên"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSinhVien"
+            android:layout_above="@+id/btnMonHoc"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="13dp" />
+
+        <Button
+            android:text="Nhập Điểm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:id="@+id/btnNhapDiem"
+            android:layout_below="@+id/btnMonHoc"
+            android:layout_alignLeft="@+id/btnMonHoc"
+            android:layout_alignStart="@+id/btnMonHoc"
+            android:layout_alignRight="@+id/btnMonHoc"
+            android:layout_alignEnd="@+id/btnMonHoc" />
+    </RelativeLayout>
+
+
+</LinearLayout>

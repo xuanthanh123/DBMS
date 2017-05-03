@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.shadow.quanlydiemsv">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ManHinhSinhvien" />
+        <activity android:name=".ManHinhMonHoc" />
+        <activity android:name=".ManHinhNhapDiem" />
+        <activity android:name=".DongSinhVien" />
+        <activity android:name=".Dong_mon_hoc" />
+        <activity android:name=".Thong_tin_sinh_vien" />
+        <activity android:name=".Dong_DiemSV" />
+        <activity android:name=".Nhap_diem" />
+        <activity android:name=".MonHoc_2"></activity>
+    </application>
+
+</manifest>

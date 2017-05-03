@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/tvTieude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Thông tinh sinh viên"
+        android:textColor="#ffff3037"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvMaSV1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Mã sinh viên:"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/txtMaSV1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTieude"
+            android:layout_toRightOf="@+id/tvMaSV1"
+            android:textColor="#ff1707ff"
+            android:textSize="15dp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTenSV"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtMaSV1"
+            android:paddingTop="10dp"
+            android:text="Tên sinh viên"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/txtTenSV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtMaSV1"
+            android:layout_toRightOf="@+id/tvTenSV"
+            android:textColor="#ff2c0fff" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvGT1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Giới tính"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/txtGT1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/actionModeSplitBackground" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right">
+
+        <Button
+            android:text="Chọn Môn"
+            android:layout_height="match_parent"
+            android:id="@+id/bntNhapDiem"
+            android:layout_width="match_parent" />
+    </TableRow>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lvDiemSV" />
+
+
+</LinearLayout>

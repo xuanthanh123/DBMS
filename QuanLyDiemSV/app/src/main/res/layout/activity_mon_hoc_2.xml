@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edtMaMH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mã môn học" />
+
+    <EditText
+        android:id="@+id/edtTenMH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên môn học" />
+    <TableRow android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:text="Nhập"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnNhap" />
+
+    </TableRow>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0f48e5"
+        android:gravity="center"
+        android:text="Danh sách môn học"
+        android:textColor="#ffffff"
+        android:textSize="20dp" />
+    <ListView
+        android:id="@+id/lvMH"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+</LinearLayout>
