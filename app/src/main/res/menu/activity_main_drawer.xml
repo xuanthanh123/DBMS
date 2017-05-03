@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/group_guess"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_class"
+            android:icon="@drawable/ic_class_black_24dp"
+            android:title="Lớp Học" />
+        <item
+            android:id="@+id/nav_subject"
+            android:icon="@drawable/ic_book_black_24dp"
+            android:title="Môn Học" />
+        <item
+            android:id="@+id/nav_student"
+            android:icon="@drawable/ic_accessibility_black_24dp"
+            android:title="Sinh Viên" />
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/ic_help_black_24dp"
+            android:title="Trợ Giúp" />
+        <item
+            android:id="@+id/nav_info"
+            android:icon="@drawable/ic_info_black_24dp"
+            android:title="Thông Tin" />
+    </group>
+</menu>
