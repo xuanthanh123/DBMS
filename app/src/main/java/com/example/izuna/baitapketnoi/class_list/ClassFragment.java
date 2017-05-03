@@ -45,6 +45,7 @@ public class ClassFragment extends Fragment {
             classAdapter = new ClassAdapter(listClass, getActivity());
             mRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
             mRecycler.setAdapter(classAdapter);
+            classAdapter.notifyDataSetChanged();
 
         } catch (SQLException e) {
             e.printStackTrace();

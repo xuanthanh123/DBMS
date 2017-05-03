@@ -17,7 +17,7 @@ import java.util.List;
 
 
 public class ConnectClass {
-    String ip = "192.168.43.200";
+    String ip = "192.168.1.78";
     String classs = "net.sourceforge.jtds.jdbc.Driver";
     String db = "dbms";
     String un = "tan";

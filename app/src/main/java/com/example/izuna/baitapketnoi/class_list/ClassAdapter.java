@@ -42,7 +42,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassListVie
 
     @Override
     public int getItemCount() {
-        return 0;
+        return classList.size();
     }
 
     public class ClassListViewHolder extends RecyclerView.ViewHolder {
