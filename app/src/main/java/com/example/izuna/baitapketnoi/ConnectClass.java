@@ -8,6 +8,7 @@ import android.util.Log;
 import com.example.izuna.baitapketnoi.models.Class;
 import com.example.izuna.baitapketnoi.models.Subject;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -54,6 +55,20 @@ public class ConnectClass {
         return conn;
     }
 
+   /* public List<subject> getAllsubject(Connection conn) throws SQLException{
+        List<subject> subject=new ArrayList<>();
+        String query ="select * from Mon";
+        Statement stmt=conn.createStatement();
+        ResultSet rs=stmt.executeQuery(query);
+        while (rs.next()){
+            String MaMH=rs.getString("MaMH");
+            String TenMH=rs.getString("TenMH");
+            subject asubject=new  subject(MaMH,TenMH);
+            subject.add(asubject);
+        }
+        conn.close();
+        return subject;
+    }*/
     //get list province
     public List<Class> getAllClass(Connection conn) throws SQLException {
 
