@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.izuna.baitapketnoi.ConnectClass;
+import com.example.izuna.baitapketnoi.DBHelper.ConnectClass;
 import com.example.izuna.baitapketnoi.R;
 import com.example.izuna.baitapketnoi.models.Class;
 

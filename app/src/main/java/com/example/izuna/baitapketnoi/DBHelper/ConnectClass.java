@@ -1,4 +1,4 @@
-package com.example.izuna.baitapketnoi;
+package com.example.izuna.baitapketnoi.DBHelper;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -6,6 +6,7 @@ import android.os.StrictMode;
 import android.util.Log;
 
 import com.example.izuna.baitapketnoi.models.Class;
+import com.example.izuna.baitapketnoi.models.Student;
 import com.example.izuna.baitapketnoi.models.Subject;
 
 
@@ -115,5 +116,30 @@ public class ConnectClass {
         }
         conn.close();
         return subjects;
+    }
+
+    //get list student
+    //get list province
+    public List<Student> getAllStudent(Connection conn) throws SQLException {
+        List<Student> students = new ArrayList<>();
+        String query = "select SV.MaSV, SV.HoTen, SV.NgaySinh, SV.GioiTinh, SV.MaLop, LopHoc.TenLop \n" +
+                "from SV, LopHoc\n" +
+                "where SV.MaLop = LopHoc.MaLop";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+
+        while (rs.next()) {
+            String mssv = rs.getString("MaSV");
+            String hoTen = rs.getString("HoTen");
+            String ngaySinh = rs.getString("NgaySinh");
+            String gioiTinh = rs.getString("GioiTinh");
+            String maLop = rs.getString("MaLop");
+            String tenLop = rs.getString("TenLop");
+            //add to class subject
+            Student student = new Student(mssv, hoTen, ngaySinh, gioiTinh, maLop, tenLop);
+            students.add(student);
+        }
+        conn.close();
+        return students;
     }
 }

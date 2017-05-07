@@ -1,4 +1,4 @@
-package com.example.izuna.baitapketnoi.subject_list;
+package com.example.izuna.baitapketnoi.student_list;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,22 +11,22 @@ import android.view.ViewGroup;
 
 import com.example.izuna.baitapketnoi.DBHelper.ConnectClass;
 import com.example.izuna.baitapketnoi.R;
-import com.example.izuna.baitapketnoi.models.Subject;
+import com.example.izuna.baitapketnoi.models.Student;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by buivu on 05/05/2017.
+ * Created by buivu on 01/05/2017.
  */
 
-public class SubjectFragment extends Fragment {
+public class StudentFragment extends Fragment {
     private View rootView;
-    private SubjectAdapter subjectAdapter;
+    private StudentAdapter studentAdapter;
     private ConnectClass connectDatabase;
     private RecyclerView mRecycler;
-    private List<Subject> listSubject = new ArrayList<>();
+    private List<Student> listStudent = new ArrayList<>();
 
     @Nullable
     @Override
@@ -42,12 +42,12 @@ public class SubjectFragment extends Fragment {
     private void loadData() {
         try {
             //thực hiện câu truy vấn
-            listSubject = connectDatabase.getAllSubject(connectDatabase.conn());
-            subjectAdapter = new SubjectAdapter(getActivity(), listSubject);
+            listStudent = connectDatabase.getAllStudent(connectDatabase.conn());
+            studentAdapter = new StudentAdapter(getActivity(), listStudent);
             mRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-            mRecycler.setAdapter(subjectAdapter);
+            mRecycler.setAdapter(studentAdapter);
             //notifyDatasetChanged để gọi lại hàm onBIndViewHolder bên Adapter, để reload lại dữ liệu
-            subjectAdapter.notifyDataSetChanged();
+            studentAdapter.notifyDataSetChanged();
 
         } catch (SQLException e) {
             e.printStackTrace();
