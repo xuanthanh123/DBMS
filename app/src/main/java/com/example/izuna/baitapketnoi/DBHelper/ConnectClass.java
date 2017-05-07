@@ -98,7 +98,7 @@ public class ConnectClass {
     //get list province
     public List<Subject> getAllSubject(Connection conn) throws SQLException {
         List<Subject> subjects = new ArrayList<>();
-        String query = "select Mon.MaMH,Mon.TenMH,Mon_LopHoc.HocKy,LopHoc.TenLop,LopHoc.Khoa\n" +
+        String query = "select Mon.MaMH,Mon.TenMH,Mon_LopHoc.HocKy,LopHoc.TenLop,LopHoc.Khoa\n" +       //truy van csdl
                 "from Mon,Mon_LopHoc,LopHoc\n" +
                 "where Mon.MaMH=Mon_LopHoc.MaMH and Mon_LopHoc.MaMH=LopHoc.MaLop";
         Statement stmt = conn.createStatement();
