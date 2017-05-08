@@ -40,6 +40,7 @@ public class SubjectByStudentAdapter extends RecyclerView.Adapter<SubjectByStude
         holder.txtDiemLan1.setText(String.valueOf(subjectByStudent.getDiemLan1()));
         holder.txtDiemLan2.setText(String.valueOf(subjectByStudent.getDiemLan2()));
         holder.txtDiemTB.setText(String.valueOf(subjectByStudent.getTb()));
+        holder.txtKetQua.setText(subjectByStudent.getKetQua());
     }
 
     @Override

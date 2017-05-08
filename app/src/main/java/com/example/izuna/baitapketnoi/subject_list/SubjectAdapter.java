@@ -60,6 +60,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
             txtHocKy = (TextView) itemView.findViewById(R.id.txt_semester);
             txtTenLop = (TextView) itemView.findViewById(R.id.txt_class_name);
             txtKhoa = (TextView) itemView.findViewById(R.id.txt_faculty);
+
         }
     }
 }

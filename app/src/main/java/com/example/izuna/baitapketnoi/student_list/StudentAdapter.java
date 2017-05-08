@@ -40,6 +40,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         holder.txtMssv.setText(student.getMssv());
         holder.txtName.setText(student.getHoTen());
         holder.txtDate.setText(student.getNgaySinh());
+        holder.txtClass2.setText(student.getTenLop());
         if (student.getGioiTinh().equals("1")) {
             holder.txtGender.setText("Nam");
         } else {
@@ -63,7 +64,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
 
     public class StudentViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView txtMssv, txtName, txtDate, txtGender;
+        public TextView txtMssv, txtName, txtDate, txtGender,txtClass2;
         public Button btnSubjectList;
 
         public StudentViewHolder(View itemView) {
@@ -73,7 +74,9 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
             txtName = (TextView) itemView.findViewById(R.id.txt_student_name);
             txtDate = (TextView) itemView.findViewById(R.id.txt_student_date);
             txtGender = (TextView) itemView.findViewById(R.id.txt_gender);
+            txtClass2 = (TextView) itemView.findViewById(R.id.txt_class2);
             btnSubjectList = (Button) itemView.findViewById(R.id.btn_subject_list);
+
         }
     }
 }
