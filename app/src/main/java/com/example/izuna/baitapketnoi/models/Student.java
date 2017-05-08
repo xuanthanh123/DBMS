@@ -14,7 +14,7 @@ public class Student {
 
     public Student() {
     }
-
+//khai báo các kiểu dữ liệu cho các thành phần của lớp student
     public Student(String mssv, String hoTen, String ngaySinh, String gioiTinh, String maLop, String tenLop) {
         this.mssv = mssv;
         this.hoTen = hoTen;
