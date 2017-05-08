@@ -26,10 +26,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.5"
-                    android:text="MSSV" />
+                    android:text="Mã môn học" />
 
                 <TextView
-                    android:id="@+id/txt_mssv"
+                    android:id="@+id/txt_maMonHoc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3.5"
@@ -47,10 +47,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.5"
-                    android:text="Họ tên" />
+                    android:text="Tên môn học" />
 
                 <TextView
-                    android:id="@+id/txt_student_name"
+                    android:id="@+id/txt_tenMonHoc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3.5"
@@ -68,10 +68,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.5"
-                    android:text="Ngày sinh" />
+                    android:text="Điểm lần 1" />
 
                 <TextView
-                    android:id="@+id/txt_student_date"
+                    android:id="@+id/txt_diemLan1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3.5"
@@ -89,10 +89,52 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.5"
-                    android:text="Giới tính" />
+                    android:text="Điểm lần 2" />
 
                 <TextView
-                    android:id="@+id/txt_gender"
+                    android:id="@+id/txt_diemLan2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.5"
+                    android:textColor="@color/colorBlack" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Điểm trung bình" />
+
+                <TextView
+                    android:id="@+id/txt_diemTrungBinh"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.5"
+                    android:textColor="@color/colorBlack" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Kết quả" />
+
+                <TextView
+                    android:id="@+id/txt_ketQua"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3.5"
@@ -100,12 +142,12 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btn_subject_list"
+                android:id="@+id/btn_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@color/colorPrimary"
-                android:text="Xem danh sách môn học"
+                android:text="Chỉnh sửa điểm"
                 android:textColor="@android:color/white" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
