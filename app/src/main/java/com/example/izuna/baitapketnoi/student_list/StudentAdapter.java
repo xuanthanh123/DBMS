@@ -42,7 +42,6 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         } else {
             holder.txtGender.setText("Nữ");
         }
-        holder.txtClass2.setText(student.getTenLop()); //
     }
 
     @Override
@@ -52,7 +51,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
 
     public class StudentViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView txtMssv, txtName, txtDate, txtGender,txtClass2;//
+        public TextView txtMssv, txtName, txtDate, txtGender;
 
         public StudentViewHolder(View itemView) {
             super(itemView);
@@ -61,7 +60,6 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
             txtName = (TextView) itemView.findViewById(R.id.txt_student_name);
             txtDate = (TextView) itemView.findViewById(R.id.txt_student_date);
             txtGender = (TextView) itemView.findViewById(R.id.txt_gender);
-            txtClass2 = (TextView) itemView.findViewById(R.id.txt_class2);//
         }
     }
 }
