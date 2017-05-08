@@ -8,6 +8,7 @@ import android.util.Log;
 import com.example.izuna.baitapketnoi.models.Class;
 import com.example.izuna.baitapketnoi.models.Student;
 import com.example.izuna.baitapketnoi.models.Subject;
+import com.example.izuna.baitapketnoi.models.SubjectByStudent;
 
 
 import java.sql.Connection;
@@ -56,20 +57,20 @@ public class ConnectClass {
         return conn;
     }
 
-   /* public List<subject> getAllsubject(Connection conn) throws SQLException{
-        List<subject> subject=new ArrayList<>();
-        String query ="select * from Mon";
-        Statement stmt=conn.createStatement();
-        ResultSet rs=stmt.executeQuery(query);
-        while (rs.next()){
-            String MaMH=rs.getString("MaMH");
-            String TenMH=rs.getString("TenMH");
-            subject asubject=new  subject(MaMH,TenMH);
-            subject.add(asubject);
-        }
-        conn.close();
-        return subject;
-    }*/
+    /* public List<subject> getAllsubject(Connection conn) throws SQLException{
+         List<subject> subject=new ArrayList<>();
+         String query ="select * from Mon";
+         Statement stmt=conn.createStatement();
+         ResultSet rs=stmt.executeQuery(query);
+         while (rs.next()){
+             String MaMH=rs.getString("MaMH");
+             String TenMH=rs.getString("TenMH");
+             subject asubject=new  subject(MaMH,TenMH);
+             subject.add(asubject);
+         }
+         conn.close();
+         return subject;
+     }*/
     //get list province
     public List<Class> getAllClass(Connection conn) throws SQLException {
 
@@ -98,7 +99,7 @@ public class ConnectClass {
     //get list province
     public List<Subject> getAllSubject(Connection conn) throws SQLException {
         List<Subject> subjects = new ArrayList<>();
-        String query = "select Mon.MaMH,Mon.TenMH,Mon_LopHoc.HocKy,LopHoc.TenLop,LopHoc.Khoa\n" +       //truy van csdl
+        String query = "select Mon.MaMH,Mon.TenMH,Mon_LopHoc.HocKy,LopHoc.TenLop,LopHoc.Khoa\n" +
                 "from Mon,Mon_LopHoc,LopHoc\n" +
                 "where Mon.MaMH=Mon_LopHoc.MaMH and Mon_LopHoc.MaMH=LopHoc.MaLop";
         Statement stmt = conn.createStatement();
@@ -142,4 +143,33 @@ public class ConnectClass {
         conn.close();
         return students;
     }
+
+    public List<SubjectByStudent> getALlSubjectByStudent(Connection conn, String mssv) throws SQLException {
+        List<SubjectByStudent> subjectByStudents = new ArrayList<>();
+        String query = "select SV.MaSV, HoTen, NgaySinh, GioiTinh, Mon.MaMH, TenMH, DiemLan1, DiemLan2, TB, KQ\n" +
+                "from SV, Diem, Mon\n" +
+                "where Diem.MaSV = SV.MaSV and Diem.MaMH = Mon.MaMH and SV.MaSV = '" + mssv + "'";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+
+        while (rs.next()) {
+            String maSV = rs.getString("MaSV");
+            String hoTen = rs.getString("HoTen");
+            String ngaySinh = rs.getString("NgaySinh");
+            String gioiTinh = rs.getString("GioiTinh");
+            String maMonHoc = rs.getString("MaMH");
+            String tenMonHoc = rs.getString("TenMH");
+            float diemLan1 = rs.getFloat("DiemLan1");
+            float diemLan2 = rs.getFloat("DiemLan2");
+            float tb = rs.getFloat("TB");
+            String ketQua = rs.getString("KQ");
+            //add to class subject
+            SubjectByStudent subjectByStudent = new SubjectByStudent(maSV, hoTen, ngaySinh, gioiTinh, maMonHoc,
+                    tenMonHoc, diemLan1, diemLan2, tb, ketQua);
+            subjectByStudents.add(subjectByStudent);
+        }
+        conn.close();
+        return subjectByStudents;
+    }
+
 }
