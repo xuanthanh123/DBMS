@@ -172,4 +172,10 @@ public class ConnectClass {
         return subjectByStudents;
     }
 
+    public void updateScore(Connection conn, float diemLan1, float diemLan2, String mssv, String maMH) throws SQLException {
+        String query = "update Diem set DiemLan1 = "+diemLan1+", DiemLan2 = "+diemLan2+" where MaSV = '"+mssv+"' and MaMH = '"+maMH+"'";
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate(query);
+    }
+
 }
