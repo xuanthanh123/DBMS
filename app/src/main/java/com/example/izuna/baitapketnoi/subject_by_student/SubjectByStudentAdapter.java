@@ -91,7 +91,7 @@ public class SubjectByStudentAdapter extends RecyclerView.Adapter<SubjectByStude
                                 notifyDataSetChanged();
                             }
                             else{
-                                Toast.makeText(activity, "Diền điểm trước khi cập nhật", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(activity, "Điền điểm trước khi cập nhật", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (SQLException e) {
