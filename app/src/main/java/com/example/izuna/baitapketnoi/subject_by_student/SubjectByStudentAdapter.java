@@ -1,15 +1,20 @@
 package com.example.izuna.baitapketnoi.subject_by_student;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.izuna.baitapketnoi.DBHelper.ConnectClass;
 import com.example.izuna.baitapketnoi.R;
@@ -49,38 +54,55 @@ public class SubjectByStudentAdapter extends RecyclerView.Adapter<SubjectByStude
         holder.txtDiemLan1.setText(String.valueOf(subjectByStudent.getDiemLan1()));
         holder.txtDiemLan2.setText(String.valueOf(subjectByStudent.getDiemLan2()));
         holder.txtDiemTB.setText(String.valueOf(subjectByStudent.getTb()));
+        holder.txtKetQua.setText(subjectByStudent.getKetQua());
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                LayoutInflater layoutInflater = activity.getLayoutInflater();
-                View view = layoutInflater.inflate(R.layout.custom_dialog_edit_score, null);
-                builder.setView(v);
+
+                final Dialog dialog = new Dialog(activity);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.custom_dialog_edit_score);
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                dialog.getWindow().setGravity(Gravity.CENTER);
+                WindowManager.LayoutParams layoutParams = dialog.getWindow().getAttributes();
+
+                //layoutParams.x = convertDpToPixel((float) 130 / 1, ResortsActivity.this);
+                dialog.getWindow().setAttributes(layoutParams);
                 //get instance of views in custom view
-                final EditText edtDiemLan1 = (EditText) view.findViewById(R.id.edt_diemLan1);
-                final EditText edtDiemLan2 = (EditText) view.findViewById(R.id.edt_diemLan1);
+                final EditText edtDiemLan1 = (EditText) dialog.findViewById(R.id.edt_diemLan1);
+                final EditText edtDiemLan2 = (EditText) dialog.findViewById(R.id.edt_diemLan2);
+                TextView txtTenMH = (TextView) dialog.findViewById(R.id.txt_tenMonHoc);
                 //show favorite name into edittext
                 edtDiemLan1.setText(String.valueOf(subjectByStudent.getDiemLan1()));
                 edtDiemLan2.setText(String.valueOf(subjectByStudent.getDiemLan2()));
-                Button btnEdit = (Button) view.findViewById(R.id.btn_edit);
+                txtTenMH.setText(subjectByStudent.getTenMonHoc());
+                Button btnEdit = (Button) dialog.findViewById(R.id.btn_edit);
                 btnEdit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         try {
-                            connectClass.updateScore(connectClass.conn(), Float.parseFloat(edtDiemLan1.getText().toString()),
-                                    Float.parseFloat(edtDiemLan2.getText().toString()), subjectByStudent.getMaSV(),
-                                    subjectByStudent.getMaMonHoc());
-                            subjectByStudentList.clear();
-                            subjectByStudentList = connectClass.getALlSubjectByStudent(connectClass.conn(), subjectByStudent.getMaSV());
+                            if (!TextUtils.isEmpty(edtDiemLan1.getText()) && !TextUtils.isEmpty(edtDiemLan2.getText())){
+                                dialog.dismiss();
+                                connectClass.updateScore(connectClass.conn(), Float.parseFloat(edtDiemLan1.getText().toString()),
+                                        Float.parseFloat(edtDiemLan2.getText().toString()), subjectByStudent.getMaSV(),
+                                        subjectByStudent.getMaMonHoc());
+                                subjectByStudentList.clear();
+                                subjectByStudentList = connectClass.getALlSubjectByStudent(connectClass.conn(), subjectByStudent.getMaSV());
+                                notifyDataSetChanged();
+                            }
+                            else{
+                                Toast.makeText(activity, "Diền điểm trước khi cập nhật", Toast.LENGTH_SHORT).show();
+                            }
+
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
                     }
                 });
-                builder.create().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+               // builder.create().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                 //show dialog
 
-                builder.create().show();
+                dialog.show();
             }
         });
     }

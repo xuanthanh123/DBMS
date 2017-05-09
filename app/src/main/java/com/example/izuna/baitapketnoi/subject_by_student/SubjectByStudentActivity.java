@@ -22,7 +22,6 @@ import java.util.List;
 
 public class SubjectByStudentActivity extends AppCompatActivity {
     private Toolbar toolbar;
-
     private SubjectByStudentAdapter subjectByStudentAdapter;
     private List<SubjectByStudent> subjectByStudents = new ArrayList<>();
     private RecyclerView mRecycler;
