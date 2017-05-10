@@ -10,9 +10,9 @@ import com.example.izuna.baitapketnoi.models.Student;
 import com.example.izuna.baitapketnoi.models.Subject;
 import com.example.izuna.baitapketnoi.models.SubjectByStudent;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,7 +21,7 @@ import java.util.List;
 
 
 public class ConnectClass {
-    String ip = "172.16.109.166";
+    String ip = "192.168.1.78";
     String classs = "net.sourceforge.jtds.jdbc.Driver";
     String db = "dbms";
     String un = "tan";
@@ -173,9 +173,19 @@ public class ConnectClass {
     }
 
     public void updateScore(Connection conn, float diemLan1, float diemLan2, String mssv, String maMH) throws SQLException {
-        String query = "update Diem set DiemLan1 = "+diemLan1+", DiemLan2 = "+diemLan2+" where MaSV = '"+mssv+"' and MaMH = '"+maMH+"'";
-        Statement stmt = conn.createStatement();//tao
-        stmt.executeUpdate(query);//thuc thi
+        String query = "update Diem set DiemLan1 = " + diemLan1 + ", DiemLan2 = " + diemLan2 + " where MaSV = '" + mssv + "' and MaMH = '" + maMH + "'";
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate(query);
     }
 
+    public int login(Connection conn, String hoTen, String matKhau) throws SQLException {
+        String query = "select count(*) as result from Login where HoTen = '" + hoTen + "' and Password = '" + matKhau + "'";
+        PreparedStatement pre = (PreparedStatement) conn.prepareStatement(query);
+        ResultSet rs = pre.executeQuery();
+        int intTemp = 0;
+        if (rs.next()) {
+            intTemp = rs.getInt("result");
+        }
+        return intTemp;
+    }
 }
