@@ -1,6 +1,8 @@
 package com.example.izuna.baitapketnoi;
 
 import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -10,6 +12,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -20,6 +23,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.izuna.baitapketnoi.class_list.ClassFragment;
+import com.example.izuna.baitapketnoi.info.InfoFragment;
+import com.example.izuna.baitapketnoi.login.LoginActivity;
 import com.example.izuna.baitapketnoi.student_list.StudentFragment;
 import com.example.izuna.baitapketnoi.subject_list.SubjectFragment;
 
@@ -43,7 +48,7 @@ public class MainActivity extends AppCompatActivity
     private static final String TAG_LOPHOC = "class";
     private static final String TAG_MONHOC = "subject";
     private static final String TAG_SINHVIEN = "student";
-    private static final String TAG_TROGIUP = "help";
+    private static final String TAG_DANGXUAT = "logout";
     private static final String TAG_THONGTIN = "info";
     public static String CURRENT_TAG = TAG_LOPHOC;
 
@@ -157,12 +162,8 @@ public class MainActivity extends AppCompatActivity
                 return studentFragment;
             }
             case 3: {
-                StudentFragment studentFragment = new StudentFragment();
-                return studentFragment;
-            }
-            case 4: {
-                StudentFragment studentFragment = new StudentFragment();
-                return studentFragment;
+                InfoFragment infoFragment = new InfoFragment();
+                return infoFragment;
             }
             default:
                 return new ClassFragment();
@@ -190,15 +191,32 @@ public class MainActivity extends AppCompatActivity
                         CURRENT_TAG = TAG_SINHVIEN;
                         navItemIndex = 2;
                         break;
-                    case R.id.nav_help:
-                        isClickLogout = false;
-                        CURRENT_TAG = TAG_TROGIUP;
-                        navItemIndex = 3;
-                        break;
                     case R.id.nav_info:
                         isClickLogout = false;
                         CURRENT_TAG = TAG_THONGTIN;
-                        navItemIndex = 4;
+                        navItemIndex = 3;
+                        break;
+
+                    case R.id.nav_help:
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        builder.setMessage("Bạn có chắc chắn muốn đăng xuất")
+                                .setCancelable(false)
+                                .setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        //initInfo();
+                                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                })
+                                .setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.cancel();
+                                    }
+                                });
+                        builder.create().show();
                         break;
                     default:
                         navItemIndex = 0;
