@@ -21,7 +21,7 @@ import java.util.List;
 
 
 public class ConnectClass {
-    String ip = "192.168.1.78";
+    String ip = "172.16.109.166";
     String classs = "net.sourceforge.jtds.jdbc.Driver";
     String db = "dbms";
     String un = "tan";
@@ -174,8 +174,8 @@ public class ConnectClass {
 
     public void updateScore(Connection conn, float diemLan1, float diemLan2, String mssv, String maMH) throws SQLException {
         String query = "update Diem set DiemLan1 = "+diemLan1+", DiemLan2 = "+diemLan2+" where MaSV = '"+mssv+"' and MaMH = '"+maMH+"'";
-        Statement stmt = conn.createStatement();
-        stmt.executeUpdate(query);
+        Statement stmt = conn.createStatement();//tao
+        stmt.executeUpdate(query);//thuc thi
     }
 
 }

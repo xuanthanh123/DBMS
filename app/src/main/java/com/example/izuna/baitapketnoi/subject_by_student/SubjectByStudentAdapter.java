@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by buivu on 08/05/2017.
+ * Created by thanh on 08/05/2017.
  */
 
 public class SubjectByStudentAdapter extends RecyclerView.Adapter<SubjectByStudentAdapter.SubjectByStudentViewHolder> {

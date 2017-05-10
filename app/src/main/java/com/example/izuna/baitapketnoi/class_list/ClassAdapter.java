@@ -12,7 +12,7 @@ import com.example.izuna.baitapketnoi.models.Class;
 import java.util.List;
 
 /**
- * Created by buivu on 02/05/2017.
+ * Created by thanh on 02/05/2017.
  */
 
 public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassListViewHolder> {

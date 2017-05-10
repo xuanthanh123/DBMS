@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by buivu on 02/05/2017.
+ * Created by thanh on 02/05/2017.
  */
 
 public class TempActivity extends AppCompatActivity {

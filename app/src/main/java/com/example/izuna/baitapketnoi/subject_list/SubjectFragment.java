@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by buivu on 05/05/2017.
+ * Created by thanh on 05/05/2017.
  */
 
 public class SubjectFragment extends Fragment {

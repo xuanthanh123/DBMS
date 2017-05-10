@@ -15,7 +15,7 @@ import com.example.izuna.baitapketnoi.subject_by_student.SubjectByStudentActivit
 import java.util.List;
 
 /**
- * Created by buivu on 07/05/2017.
+ * Created by thanh on 07/05/2017.
  */
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder> {

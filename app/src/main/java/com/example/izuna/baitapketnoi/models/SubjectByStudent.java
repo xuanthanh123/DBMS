@@ -1,7 +1,7 @@
 package com.example.izuna.baitapketnoi.models;
 
 /**
- * Created by buivu on 08/05/2017.
+ * Created by thanh on 08/05/2017.
  */
 
 public class SubjectByStudent {
