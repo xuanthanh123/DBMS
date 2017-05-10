@@ -65,12 +65,15 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mainActivity = this;
+        //khởi tạo component
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mHandler = new Handler();
-        //createData();
+        //khởi tạo các views
         initViews();
+        //cài đặt navigationView
         setUpNavigationView();
+        //mặc định sẽ load danh sách lớp học trước
         if (savedInstanceState == null) {
             navItemIndex = 0;
             CURRENT_TAG = TAG_LOPHOC;
@@ -89,13 +92,9 @@ public class MainActivity extends AppCompatActivity
         txtName = (TextView) headerView.findViewById(R.id.txt_header_name);
         txtEmail = (TextView) headerView.findViewById(R.id.txt_header_email);
         //init title
+        //lấy danh sách title từ file string
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
-        //event click avatar
-        imgAvatar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
+
     }
 
     //set title for toolbar
@@ -103,6 +102,7 @@ public class MainActivity extends AppCompatActivity
         getSupportActionBar().setTitle(activityTitles[navItemIndex]);
     }
 
+    //xem item nào trong navigationView dc click
     private void selectNavMenu() {
         navigationView.getMenu().getItem(navItemIndex).setChecked(true);
     }
@@ -147,6 +147,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    //lấy fragment tương ứng, dựa vào navItemIndex
     private Fragment getFragment() {
         switch (navItemIndex) {
             case 0: {
@@ -170,6 +171,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    //sự kiện click item navigationView
     private void setUpNavigationView() {
         //Setting Navigation View Item Selected Listener to handle the item click of the navigation menu
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -197,7 +199,7 @@ public class MainActivity extends AppCompatActivity
                         navItemIndex = 3;
                         break;
 
-                    case R.id.nav_help:
+                    case R.id.nav_logout:
                         final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                         builder.setMessage("Bạn có chắc chắn muốn đăng xuất")
                                 .setCancelable(false)

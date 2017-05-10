@@ -40,9 +40,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (checkDataComplete()) {
                     try {
+                        //hàm lấy kết quả đăng nhập, nếu là 1 là đăng nhập thành công
                         int result = connectClass.login(connectClass.conn(), edtUsername.getText().toString(),
                                 edtPassword.getText().toString());
                         if (result == 1) {
+                            //chuyển qua màn hình Main
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();

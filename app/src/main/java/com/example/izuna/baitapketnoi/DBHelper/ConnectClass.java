@@ -57,20 +57,7 @@ public class ConnectClass {
         return conn;
     }
 
-    /* public List<subject> getAllsubject(Connection conn) throws SQLException{
-         List<subject> subject=new ArrayList<>();
-         String query ="select * from Mon";
-         Statement stmt=conn.createStatement();
-         ResultSet rs=stmt.executeQuery(query);
-         while (rs.next()){
-             String MaMH=rs.getString("MaMH");
-             String TenMH=rs.getString("TenMH");
-             subject asubject=new  subject(MaMH,TenMH);
-             subject.add(asubject);
-         }
-         conn.close();
-         return subject;
-     }*/
+
     //get list province
     public List<Class> getAllClass(Connection conn) throws SQLException {
 
@@ -79,7 +66,9 @@ public class ConnectClass {
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery(query);
 
+        //vòng lặp lấy toàn bộ dữ liệu trả về
         while (rs.next()) {
+            //tạo thể hiện của 1 lớp, sau đó lưu thông tin vào lớp đó
             String maLop = rs.getString("MaLop");
             String tenLop = rs.getString("TenLop");
             String khoa = rs.getString("Khoa");
@@ -96,6 +85,7 @@ public class ConnectClass {
         return classes;
     }
 
+    //tương tự
     //get list province
     public List<Subject> getAllSubject(Connection conn) throws SQLException {
         List<Subject> subjects = new ArrayList<>();
@@ -172,12 +162,14 @@ public class ConnectClass {
         return subjectByStudents;
     }
 
+    //hàm cập nhật điểm cho sinh viên
     public void updateScore(Connection conn, float diemLan1, float diemLan2, String mssv, String maMH) throws SQLException {
         String query = "update Diem set DiemLan1 = " + diemLan1 + ", DiemLan2 = " + diemLan2 + " where MaSV = '" + mssv + "' and MaMH = '" + maMH + "'";
         Statement stmt = conn.createStatement();
         stmt.executeUpdate(query);
     }
 
+    //hàm đăng nhập
     public int login(Connection conn, String hoTen, String matKhau) throws SQLException {
         String query = "select count(*) as result from Login where HoTen = '" + hoTen + "' and Password = '" + matKhau + "'";
         PreparedStatement pre = (PreparedStatement) conn.prepareStatement(query);
