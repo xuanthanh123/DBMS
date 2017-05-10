@@ -12,7 +12,7 @@ import com.example.izuna.baitapketnoi.models.Class;
 import java.util.List;
 
 /**
- * Created by buivu on 02/05/2017.
+ * Created by thanh on 02/05/2017.
  * lớp adapter này dùng để đổ dữ liệu lên recyclerview, recyclerview là view để hiển thị dữ liệu
  */
 

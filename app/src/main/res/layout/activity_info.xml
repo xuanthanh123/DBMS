@@ -23,12 +23,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="+Nguyễn Xuân Thành" />
+            android:text="Nguyễn Xuân Thành   mssv: 13110151" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Sinh viên thực hiện" />
+            android:text="Trần Nhật Tân     mssv :13110145 " />
     </LinearLayout>
 </LinearLayout>
