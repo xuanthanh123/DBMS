@@ -32,7 +32,7 @@ public class SubjectByStudentActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject_by_student);
-        //khởi tạo compoenets
+        //khởi tạo components
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         mRecycler = (RecyclerView) findViewById(R.id.recycler_subject_by_student);
         //cấu hình toolbar

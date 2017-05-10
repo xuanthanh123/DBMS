@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity
 
     //sự kiện click item navigationView
     private void setUpNavigationView() {
-        //Setting Navigation View Item Selected Listener to handle the item click of the navigation menu
+        //Thiết lập Chế độ xem danh mục Người kiểm tra đã chọn để xử lý nhấp chuột vào mục trình đơn điều hướng
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -262,14 +262,14 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    @Override
+    @Override //Hàm bắt sự kiện khi nhấn nút quay về
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else
             // rather than home
-            if (navItemIndex != 0) {
+            if (navItemIndex != 0) { // nếu đang ở màn hình khác sẽ bay về màn hình lớp học !!
                 navItemIndex = 0;
                 CURRENT_TAG = TAG_LOPHOC;
                 loadFragment();
