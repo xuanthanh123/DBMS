@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity
                         navItemIndex = 3;
                         break;
 
-                    case R.id.nav_help:
+                    case R.id.nav_logout:
                         final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                         builder.setMessage("Bạn có chắc chắn muốn đăng xuất")
                                 .setCancelable(false)

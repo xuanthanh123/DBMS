@@ -17,7 +17,7 @@ import com.example.izuna.baitapketnoi.R;
 import java.sql.SQLException;
 
 /**
- * Created by buivu on 10/05/2017.
+ * Created by thanh on 10/05/2017.
  */
 
 public class LoginActivity extends AppCompatActivity {

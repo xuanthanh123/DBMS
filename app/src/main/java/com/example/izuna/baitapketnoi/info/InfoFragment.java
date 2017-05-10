@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.example.izuna.baitapketnoi.R;
 
 /**
- * Created by buivu on 10/05/2017.
+ * Created by thanh on 10/05/2017.
  */
 
 public class InfoFragment extends Fragment {
