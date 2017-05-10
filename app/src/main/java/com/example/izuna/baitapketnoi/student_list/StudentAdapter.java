@@ -46,7 +46,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         } else {
             holder.txtGender.setText("Nữ");
         }
-        //event click button
+        //sự kiện click button, ta sẽ chuyển qua màn hình SubjectByStudent, với tham số dc truyền qua là mssv của sv đó
         holder.btnSubjectList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

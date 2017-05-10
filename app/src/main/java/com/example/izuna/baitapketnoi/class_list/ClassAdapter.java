@@ -12,7 +12,8 @@ import com.example.izuna.baitapketnoi.models.Class;
 import java.util.List;
 
 /**
- * Created by thanh on 02/05/2017.
+ * Created by buivu on 02/05/2017.
+ * lớp adapter này dùng để đổ dữ liệu lên recyclerview, recyclerview là view để hiển thị dữ liệu
  */
 
 public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassListViewHolder> {
@@ -20,6 +21,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassListVie
     private List<Class> classList;
     private Activity activity;
 
+    //hàm khởi tạo
     public ClassAdapter(List<Class> classList, Activity activity) {
         this.classList = classList;
         this.activity = activity;
@@ -27,12 +29,15 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassListVie
 
     @Override
     public ClassListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        //hàm ánh xạ, cho biết layout nào sẽ là itemview
         View itemView = View.inflate(activity, R.layout.item_class, null);
         return new ClassListViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(ClassListViewHolder holder, int position) {
+        //lấy ra object trong list tương ứng với position
+        //trường hợp này là lớp Class
         Class aClass = classList.get(position);
         holder.txtTenLop.setText(aClass.getTenLop());
         holder.txtKhoa.setText(aClass.getKhoa());
@@ -45,6 +50,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassListVie
         return classList.size();
     }
 
+    //lớp viewholder, dùng để quản lý từng components trong itemview
     public class ClassListViewHolder extends RecyclerView.ViewHolder {
 
         public TextView txtTenLop, txtKhoa, txtHeDaoTao, txtSiSo;

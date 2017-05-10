@@ -32,17 +32,21 @@ public class SubjectByStudentActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject_by_student);
+        //khởi tạo compoenets
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         mRecycler = (RecyclerView) findViewById(R.id.recycler_subject_by_student);
+        //cấu hình toolbar
         setSupportActionBar(toolbar);
+        //hiển thị icon back
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Danh sách môn học");
         //init
         connectClass = new ConnectClass(this);
-        //get intent
+        //get intent dc truyền qua từ StudentAdapter, khi ta click vào button bên StudentAdapter
         mssv = getIntent().getStringExtra("MSSV");
         try {
+            //gọi hàm lấy toàn bộ môn học của sv đó
             subjectByStudents = connectClass.getALlSubjectByStudent(connectClass.conn(), mssv);
         } catch (SQLException e) {
             e.printStackTrace();

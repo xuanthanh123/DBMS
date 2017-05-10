@@ -39,12 +39,17 @@ public class ClassFragment extends Fragment {
         return rootView;
     }
 
+    //hàm lấy dữ liệu từ sql
     private void loadData() {
         try {
+            //lấy data từ sql
             listClass = connectDatabase.getAllClass(connectDatabase.conn());
+            //khởi tạo lớp adapter với 2 tham số
             classAdapter = new ClassAdapter(listClass, getActivity());
+            //cài đặt layout manager cho recyclerview, trường hợp này là layout dạng list, kiểu vertical
             mRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
             mRecycler.setAdapter(classAdapter);
+            //để gọi lại hàm onBindViewHolder trong adapter
             classAdapter.notifyDataSetChanged();
 
         } catch (SQLException e) {
