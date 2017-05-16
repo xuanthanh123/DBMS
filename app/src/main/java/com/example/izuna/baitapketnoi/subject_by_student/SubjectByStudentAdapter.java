@@ -34,18 +34,21 @@ public class SubjectByStudentAdapter extends RecyclerView.Adapter<SubjectByStude
     public List<SubjectByStudent> subjectByStudentList = new ArrayList<>();
     private ConnectClass connectClass;
 
+    //hàm khởi tạo
     public SubjectByStudentAdapter(Activity activity, List<SubjectByStudent> subjectByStudentList) {
         this.activity = activity;
         this.subjectByStudentList = subjectByStudentList;
         connectClass = new ConnectClass(activity);
     }
 
+    //cho biết itemview nào sẽ dc sử dụng
     @Override
     public SubjectByStudentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = View.inflate(activity, R.layout.item_subject_by_student, null);
         return new SubjectByStudentViewHolder(itemView);
     }
 
+    //load data lên itemview
     @Override
     public void onBindViewHolder(SubjectByStudentViewHolder holder, int position) {
         final SubjectByStudent subjectByStudent = subjectByStudentList.get(position);
@@ -61,7 +64,9 @@ public class SubjectByStudentAdapter extends RecyclerView.Adapter<SubjectByStude
 
                 final Dialog dialog = new Dialog(activity);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                //giao diện custom dialog
                 dialog.setContentView(R.layout.custom_dialog_edit_score);
+                //set layout param cho dialog
                 dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 dialog.getWindow().setGravity(Gravity.CENTER);
                 WindowManager.LayoutParams layoutParams = dialog.getWindow().getAttributes();
@@ -77,16 +82,22 @@ public class SubjectByStudentAdapter extends RecyclerView.Adapter<SubjectByStude
                 edtDiemLan2.setText(String.valueOf(subjectByStudent.getDiemLan2()));
                 txtTenMH.setText(subjectByStudent.getTenMonHoc());
                 Button btnEdit = (Button) dialog.findViewById(R.id.btn_edit);
+                //sự kiện click cập nhật điểm
                 btnEdit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         try {
+                            //kiểm tra, nếu mà không nhập điểm thì sẽ báo lỗi, và không tiến hành cập nhật
                             if (!TextUtils.isEmpty(edtDiemLan1.getText()) && !TextUtils.isEmpty(edtDiemLan2.getText())){
+                                //đóng dialog
                                 dialog.dismiss();
+                                //gọi hàm cập nhật điểm
                                 connectClass.updateScore(connectClass.conn(), Float.parseFloat(edtDiemLan1.getText().toString()),
                                         Float.parseFloat(edtDiemLan2.getText().toString()), subjectByStudent.getMaSV(),
                                         subjectByStudent.getMaMonHoc());
+                                //xóa toàn bộ danh sách SubjectByStudent
                                 subjectByStudentList.clear();
+                                //lấy lại danh sách subjectByStudent
                                 subjectByStudentList = connectClass.getALlSubjectByStudent(connectClass.conn(), subjectByStudent.getMaSV());
                                 notifyDataSetChanged();
                             }
